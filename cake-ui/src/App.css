@@ -1,0 +1,15 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #1a1a1a;
+  background-color: #fff5f5;
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+a:hover {
+  text-decoration: underline;
+}
