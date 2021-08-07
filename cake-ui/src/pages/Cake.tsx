@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Cake } from '../types/cake';
 import { CakeForm } from '../components/CakeForm';
+import { DeletionForm } from '../components/DeletionForm';
 
 type CakeParams = {
   slug: string;
@@ -45,6 +46,7 @@ export const CakePage = () => {
             <i>{cake.image}</i>
           </div>
           <CakeForm initialCake={cake} />
+          <DeletionForm slug={cake.slug} />
         </>
       )}
     </Container>
