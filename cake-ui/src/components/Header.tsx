@@ -22,11 +22,12 @@ export const Header: React.FC = () => {
  return (
    <HeaderContainer>
      <Title>
-       <h1>Hello World!</h1>
+       <h1>Cake Manager</h1>
      </Title>
      <Nav>
        <Link href='/'>Home</Link>
        <Link href='/cakes'>All Cakes</Link>
+       <Link href='/new-cake'>New Cake</Link>
      </Nav>
    </HeaderContainer>
  );

@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { BorderedLink } from '../components/Link';
+import { CakeSummary } from '../types/cake';
 
-interface CakeSummary {
-  slug: string;
-  title: string;
-}
 const defaultCakeSummaries: CakeSummary[] = [];
 
 const Container = styled.div`

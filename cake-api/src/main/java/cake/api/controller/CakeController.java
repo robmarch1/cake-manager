@@ -43,14 +43,14 @@ public class CakeController {
     }
 
     @GetMapping(path = "/cakes/{cakeSlug}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public CakeEntity getCake(@PathVariable String cakeSlug) throws CakeNotFoundException {
+    public Cake getCake(@PathVariable String cakeSlug) throws CakeNotFoundException {
         log.info("Attempting to find cake by slug " + cakeSlug);
         CakeEntity cake = cakeRepository.getBySlug(cakeSlug);
         if (cake == null) {
             log.warning("Unable to find cake with slug " + cakeSlug);
             throw new CakeNotFoundException(cakeSlug);
         }
-        return cake;
+        return new Cake(cake);
     }
 
     @PutMapping(path = "/cakes", consumes = MediaType.APPLICATION_JSON_VALUE)

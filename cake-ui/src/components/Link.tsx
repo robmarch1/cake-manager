@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Link = styled.a`
@@ -27,5 +26,5 @@ export const BorderedLink = styled(Link)`
 `;
 
 export const InlineLink = styled(Link)`
-    margin: 0;
+  margin: 0;
 `;

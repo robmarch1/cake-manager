@@ -2,14 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import styled from 'styled-components';
-
-interface Cake {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-}
-const defaultCake = { slug: '', title: '', description: '', image: '' };
+import { Cake } from '../types/cake';
+import { CakeForm } from '../components/CakeForm';
 
 type CakeParams = {
   slug: string;
@@ -20,10 +14,9 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-export const Cake = () => {
+export const CakePage = () => {
   let { slug } = useParams<CakeParams>();
   const [cake, setCake]: [Cake | null, (cake: Cake | null) => void] = useState<Cake | null>(null);
-  const [loading, setLoading]: [boolean, (loading: boolean) => void] = useState<boolean>(true);
   const [error, setError]: [string, (error: string) => void] = useState('');
 
   useEffect(() => {
@@ -31,7 +24,6 @@ export const Cake = () => {
         .get<Cake>(`http://localhost:8080/cakes/${slug}`)
         .then(response => {
           setCake(response.data);
-          setLoading(false);
           setError('');
         }).catch((e) => {
           if (e.response?.status === 404) {
@@ -47,9 +39,12 @@ export const Cake = () => {
       {error !== '' ? (<div>{error}</div>) : null}
       {cake && (
         <>
-          <h2>{cake.title}</h2>
-          <p>{cake.description}</p>
-          <i>{cake.image}</i>
+          <div>
+            <h2>{cake.title}</h2>
+            <p>{cake.description}</p>
+            <i>{cake.image}</i>
+          </div>
+          <CakeForm initialCake={cake} />
         </>
       )}
     </Container>
