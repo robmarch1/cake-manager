@@ -1,0 +1,18 @@
+version: "2"
+services:
+
+  cake-api:
+    build:
+      context: cake-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+  cake-ui:
+    build:
+      context: cake-ui
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - cake-api
