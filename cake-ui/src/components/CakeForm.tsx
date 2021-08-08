@@ -1,7 +1,6 @@
 import React from 'react';
 import { Cake } from '../types/cake';
 import { useCakeForm } from '../hooks/use-cake-form';
-import styled from 'styled-components';
 import { Error } from './Error';
 import { Form, FormGroup, FormLabel, FormInput, FormSubmit } from './Form';
 

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from 'axios';
-import { Cake } from '../types/cake';
 import { useHistory } from "react-router-dom";
 import { endpoint } from '../api';
 

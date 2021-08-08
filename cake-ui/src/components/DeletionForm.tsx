@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDelete } from '../hooks/use-delete';
 import { Error } from './Error';
-import { Form, FormGroup, FormLabel, FormInput, FormSubmit } from './Form';
+import { FormSubmit } from './Form';
 import { Link } from './Link';
 
 type DeletionProps = {

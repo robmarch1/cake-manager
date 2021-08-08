@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
     return (
       <Container>
         {cakes.map((cake, i) => (
-          <CakeLink href={'/cakes/' + cake.slug}>{cake.title}</CakeLink>
+          <CakeLink href={'/cakes/' + cake.slug} key={i}>{cake.title}</CakeLink>
         ))}
       </Container>
     );

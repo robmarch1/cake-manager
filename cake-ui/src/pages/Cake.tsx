@@ -34,7 +34,7 @@ export const CakePage = () => {
             setError('Something went wrong');
           }
         });
-    }, []);
+    }, [slug]);
 
   return (
     <Container>
