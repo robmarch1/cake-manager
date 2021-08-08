@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Cake } from '../types/cake';
 import { CakeForm } from '../components/CakeForm';
 import { DeletionForm } from '../components/DeletionForm';
+import { endpoint } from '../api';
 
 type CakeParams = {
   slug: string;
@@ -22,7 +23,7 @@ export const CakePage = () => {
 
   useEffect(() => {
       axios
-        .get<Cake>(`http://localhost:8080/cakes/${slug}`)
+        .get<Cake>(endpoint(`/cakes/${slug}`))
         .then(response => {
           setCake(response.data);
           setError('');

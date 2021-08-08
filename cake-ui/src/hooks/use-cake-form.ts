@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import { Cake } from '../types/cake';
 import { useHistory } from "react-router-dom";
+import { endpoint } from '../api';
 
 export const useCakeForm = (initialState: Cake) => {
   const [cake, setCake] = useState<Cake>(initialState);
@@ -36,7 +37,7 @@ export const useCakeForm = (initialState: Cake) => {
     }
     console.log('Cake: [' + JSON.stringify(cake) + ']');
     axios
-      .put(`http://localhost:8080/cakes`, cake, {
+      .put(endpoint('/cakes'), cake, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           'content-type': 'application/json'

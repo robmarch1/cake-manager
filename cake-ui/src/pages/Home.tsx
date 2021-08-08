@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { BorderedLink } from '../components/Link';
 import { CakeSummary } from '../types/cake';
+import { endpoint } from '../api';
 
 const defaultCakeSummaries: CakeSummary[] = [];
 
@@ -27,7 +28,7 @@ export const Home: React.FC = () => {
   // similar to componentDidMount()
   useEffect(() => {
     axios
-      .get<CakeSummary[]>('http://localhost:8080')
+      .get<CakeSummary[]>(endpoint('/'))
       .then(response => {
         setCakes(response.data);
         setLoading(false);

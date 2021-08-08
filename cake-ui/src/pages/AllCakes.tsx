@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { endpoint } from '../api';
 
 const Container = styled.div`
   width: 40em;
@@ -24,7 +25,7 @@ export const AllCakes: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/cakes')
+      .get(endpoint('/cakes'))
       .then(response => {
         setCakes(JSON.stringify(response.data, null, 2));
         setLoading(false);

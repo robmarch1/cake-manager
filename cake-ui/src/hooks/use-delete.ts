@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import { Cake } from '../types/cake';
 import { useHistory } from "react-router-dom";
+import { endpoint } from '../api';
 
 export const useDelete = (cakeSlug: string) => {
   const [error, setError] = useState<string>();
@@ -10,7 +11,7 @@ export const useDelete = (cakeSlug: string) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     axios
-      .delete(`http://localhost:8080/cakes/${cakeSlug}`)
+      .delete(endpoint(`/cakes/${cakeSlug}`))
       .then(response => {
         console.log('Redirecting...');
         history.push('/');
