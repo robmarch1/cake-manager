@@ -1,6 +1,5 @@
 FROM openjdk:15
 
-RUN mkdir app
 WORKDIR /app
 
 COPY build.gradle gradlew gradlew.bat settings.gradle ./
