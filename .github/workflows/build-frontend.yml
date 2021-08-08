@@ -1,0 +1,24 @@
+name: build-frontend
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+defaults:
+  run:
+    working-directory: cake-ui
+jobs:
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+      - name: Build
+        uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
