@@ -8,6 +8,7 @@ const defaultCakeSummaries: CakeSummary[] = [];
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 20em;
   margin: 0 auto;
 `;
